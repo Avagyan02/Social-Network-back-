@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { AppService } from './app.service';
         // logging: true,
 
         type: 'postgres',
+        host: 'localhost',
         username: 'postgres',
         password: 'root',
         database: 'social_network',
@@ -32,6 +34,7 @@ import { AppService } from './app.service';
         logging: true,
       }),
     }),
+    PostModule,
   ],
   controllers: [AppController],
   providers: [AppService],
